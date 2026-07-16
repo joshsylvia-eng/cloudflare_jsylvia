@@ -2,7 +2,7 @@ export async function onRequestPost(context) {
   try {
     const { name, email, subject, message } = await context.request.json();
     const resendApiKey = context.env.RESEND_API_KEY;
-    const contactEmail = context.env.CONTACT_EMAIL;
+    const contactEmail = context.env.CONTACT_EMAIL || 'joshsylvia@gmail.com';
     
     if (!resendApiKey) {
       console.error('RESEND_API_KEY not configured in environment variables');
