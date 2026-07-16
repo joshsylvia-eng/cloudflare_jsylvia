@@ -48,9 +48,10 @@ export async function onRequestPost(context) {
     if (!resendResponse.ok) {
       const errorData = await resendResponse.text();
       console.error('Resend API error:', errorData);
+      console.error('Resend API status:', resendResponse.status);
       return new Response(JSON.stringify({
         success: false,
-        error: 'Failed to send email. Please try again later.'
+        error: `Failed to send email. API Error: ${errorData}`
       }), {
         status: 500,
         headers: {
