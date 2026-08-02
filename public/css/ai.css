@@ -285,6 +285,69 @@ body {
     padding: 0 20px;
 }
 
+.construction-notice {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffc107;
+    color: #333;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    cursor: help;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: construction-pulse 2s ease-in-out infinite;
+}
+
+.construction-icon {
+    font-size: 1.4rem;
+}
+
+.construction-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: normal;
+    white-space: nowrap;
+    max-width: 90vw;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.construction-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.construction-notice:hover .construction-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes construction-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
 .chatbot-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
