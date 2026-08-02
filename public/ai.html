@@ -29,9 +29,6 @@
         </div>
     </section>
 
-    <!-- ... -->
-    </section>
-
     <!-- MCP Integration Section -->
     <section class="mcp-section">
         <div class="mcp-container">
@@ -98,6 +95,730 @@
                     <strong>Retrieval Method:</strong> Keyword matching + content analysis + relevance scoring<br>
                     <strong>Integration:</strong> Real-time context injection with Groq's llama-3.1-8b-instant model<br>
                     <strong>Performance:</strong> Sub-second document retrieval with enhanced response accuracy
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agentic AI Section -->
+    <section class="mcp-section">
+        <div class="mcp-container">
+            <h2 class="mcp-title">Agentic AI</h2>
+            <p class="section-subtitle">Autonomous AI systems that plan, reason, and act to achieve goals — using tools, memory, and guardrails instead of just generating text.</p>
+
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">What Is Agentic AI?</h3>
+                    <p class="mcp-card-description">
+                        Agentic AI refers to systems that autonomously pursue goals, make decisions, and take action — not simply generate text. Rather than answering a single prompt, an agent perceives its environment, plans a sequence of steps, invokes tools, observes results, and iterates until the objective is met within defined guardrails.
+                    </p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Core Capabilities</h3>
+                    <ul class="info-list">
+                        <li><strong>Autonomy</strong> — goal-directed behavior with limited supervision</li>
+                        <li><strong>Tool use</strong> — APIs, code execution, web search, databases, MCP servers</li>
+                        <li><strong>Memory</strong> — short-term working context plus long-term knowledge</li>
+                        <li><strong>Planning &amp; reasoning</strong> — decomposing complex goals into subtasks</li>
+                        <li><strong>Reflection</strong> — self-critique, error correction, and retries</li>
+                        <li><strong>Multi-agent orchestration</strong> — specialized agents that collaborate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">Agent Architecture Components</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Reasoning Engine</h3>
+                    <p class="mcp-card-description">The LLM that plans, reasons, and decides. Multi-step reasoning and tool calling are enabled through structured outputs and function calling.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">System Prompt / Persona</h3>
+                    <p class="mcp-card-description">Defines the agent's role, constraints, style, and permitted behavior. A security boundary — it is a leakable asset if exposed.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Tools &amp; Function Calling</h3>
+                    <p class="mcp-card-description">External capabilities such as APIs, code interpreters, file systems, and MCP servers. Every tool is a potential attack surface.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Memory Systems</h3>
+                    <p class="mcp-card-description">Working memory for the current session and long-term (semantic/episodic) memory stored in vector databases for persistence.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Orchestrator / Planner</h3>
+                    <p class="mcp-card-description">Coordinates subtasks, orders tool calls, and tracks progress toward the goal. Implements patterns like ReAct and plan-and-execute.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Guardrails &amp; Policies</h3>
+                    <p class="mcp-card-description">Enforce allowed actions, block disallowed outputs, and restrict tool permissions — the agent equivalent of authorization.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Observability &amp; Telemetry</h3>
+                    <p class="mcp-card-description">Full traces of reasoning steps, tool calls, costs, and outputs to enable auditing, debugging, and incident response.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">Agentic Design Patterns</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">ReAct (Reason + Act)</h3>
+                    <p class="mcp-card-description">Interleaves reasoning traces with actions. The model thinks, acts, observes the result, and iterates.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Plan-and-Execute</h3>
+                    <p class="mcp-card-description">Separates high-level planning from step-by-step execution, improving reliability on complex multi-step tasks.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Tool-Calling Loop</h3>
+                    <p class="mcp-card-description">A structured loop where the model requests tools, executes them, and feeds results back into context until done.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Reflection &amp; Self-Critique</h3>
+                    <p class="mcp-card-description">The agent evaluates its own outputs, detects errors, and retries — dramatically improving task success rates.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Multi-Agent Orchestration</h3>
+                    <p class="mcp-card-description">Hierarchical or peer-to-peer teams of specialized agents (planner, researcher, coder, reviewer) that collaborate.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Human-in-the-Loop</h3>
+                    <p class="mcp-card-description">Escalation points where a human reviews high-risk actions. Essential for safety and accountability.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Retrieval-Augmented Agents</h3>
+                    <p class="mcp-card-description">Combine RAG with agents so models pull fresh, domain-specific context before acting, reducing hallucination.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">Types of AI Agents</h3>
+            <ul class="info-list">
+                <li><strong>Reactive agents</strong> — respond to the current input only, with no memory of past states</li>
+                <li><strong>Model-based agents</strong> — maintain an internal model of the world to reason about outcomes</li>
+                <li><strong>Goal-based agents</strong> — act to reach a defined objective, considering future consequences</li>
+                <li><strong>Utility-based agents</strong> — choose actions that maximize a measured outcome</li>
+                <li><strong>Learning agents</strong> — improve behavior from experience over time</li>
+                <li><strong>Conversational agents</strong> — chatbots and virtual assistants</li>
+                <li><strong>Coding agents</strong> — autonomous software engineering agents that write, test, and fix code</li>
+                <li><strong>Research agents</strong> — gather, synthesize, and verify information across sources</li>
+                <li><strong>Operations / SOC agents</strong> — triage alerts, investigate incidents, and orchestrate response</li>
+            </ul>
+
+            <h3 class="mcp-subtitle">Frameworks &amp; Tools</h3>
+            <ul class="info-list">
+                <li><strong>LangChain / LangGraph</strong> — graph-based agent orchestration and state management</li>
+                <li><strong>LlamaIndex</strong> — data frameworks for RAG and agentic data workflows</li>
+                <li><strong>Microsoft AutoGen</strong> — multi-agent conversation framework</li>
+                <li><strong>CrewAI</strong> — role-based, collaborative agent teams</li>
+                <li><strong>OpenAI Agents / Assistants API</strong> — managed agent tooling</li>
+                <li><strong>Model Context Protocol (MCP)</strong> — open standard for connecting agents to tools and data</li>
+                <li><strong>Vector databases</strong> — Pinecone, Weaviate, Qdrant, pgvector for agent memory</li>
+                <li><strong>Guardrails frameworks</strong> — NVIDIA NeMo Guardrails, Guardrails AI, Llama Guard</li>
+            </ul>
+
+            <h3 class="mcp-subtitle">Agentic AI Use Cases</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Autonomous Software Engineering</h3>
+                    <p class="mcp-card-description">Agents that plan implementations, write code, run tests, and fix failures against a repository.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Security Operations (SOC)</h3>
+                    <p class="mcp-card-description">Alert triage, enrichment, containment, and response orchestration with human approval for destructive actions.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Customer Support Resolution</h3>
+                    <p class="mcp-card-description">End-to-end resolution using knowledge bases, order systems, and refund tools within strict guardrails.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Research &amp; Analysis</h3>
+                    <p class="mcp-card-description">Multi-source research agents that search, read, cite, and synthesize verified findings.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">IT Operations / Self-Healing</h3>
+                    <p class="mcp-card-description">Agents that detect incidents, diagnose root causes, and apply approved remediation playbooks.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Business Process Orchestration</h3>
+                    <p class="mcp-card-description">Automating multi-system workflows across CRM, ERP, and communication platforms.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">Agentic AI Risks</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Excessive Agency</h3>
+                    <p class="mcp-card-description">An agent granted too many tools or permissions can take harmful, irreversible actions. Least-privilege design is mandatory.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Tool &amp; Privilege Abuse</h3>
+                    <p class="mcp-card-description">Compromised prompts can chain into tool misuse, data exfiltration, and lateral movement.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Prompt Injection via Data</h3>
+                    <p class="mcp-card-description">Malicious content inside fetched documents or web pages can manipulate agent behavior.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Hallucination &amp; Overreliance</h3>
+                    <p class="mcp-card-description">Confident but wrong outputs that humans trust without verification — especially dangerous in automation.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Unbounded Consumption</h3>
+                    <p class="mcp-card-description">Runaway loops can burn tokens, API quota, and cost. Hard budgets and loop limits are essential.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Supply Chain &amp; Auditability</h3>
+                    <p class="mcp-card-description">Third-party plugins, models, and agents must be vetted, and every action recorded for audit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Security Section -->
+    <section class="mcp-section ai-security-section">
+        <div class="mcp-container">
+            <h2 class="mcp-title">AI Security</h2>
+            <p class="section-subtitle">Aligned with CompTIA SecAI+ (CY0-001) — securing AI systems, using AI in security operations, and governing AI responsibly.</p>
+
+            <div class="highlight-box">
+                <h3>What Is CompTIA SecAI+?</h3>
+                <p>SecAI+ (Security Artificial Intelligence Plus, exam CY0-001, launched February 17, 2026) is CompTIA's expansion certification focused specifically on AI security. It validates practical, vendor-neutral skills for defending AI systems, applying AI responsibly inside security operations, and managing the governance, risk, and compliance obligations of AI-enabled environments. Recommended experience: 3-4 years of IT experience with roughly 2 years of hands-on cybersecurity.</p>
+            </div>
+
+            <h3 class="mcp-subtitle">The Four SecAI+ Domains</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">1. Basic AI Concepts (17%)</h3>
+                    <p class="mcp-card-description">Machine learning, deep learning, NLP, and automation; AI use cases in threat detection and defense; and AI-driven threats such as automated phishing, polymorphic malware, and adversarial ML.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">2. Securing AI Systems (40%)</h3>
+                    <p class="mcp-card-description">Implement technical controls for AI systems, data, and models; secure on-premises, cloud, and hybrid deployments; mitigate adversarial risks across model, data pipeline, and inference layers.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">3. AI-Assisted Security (24%)</h3>
+                    <p class="mcp-card-description">Use AI to enhance detection and response, automate security workflows, and incorporate AI into threat modeling, behavior analysis, and continuous monitoring.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">4. AI Governance, Risk &amp; Compliance (19%)</h3>
+                    <p class="mcp-card-description">Navigate regulatory frameworks (EU AI Act, OECD, ISO AI standards, NIST AI RMF, GDPR), integrate GRC across the AI lifecycle, and ensure responsible, ethical AI use.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">AI-Specific Threats &amp; Attacks</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Prompt Injection</h3>
+                    <p class="mcp-card-description">Malicious instructions embedded in user input or data hijack the model's behavior. Mitigate with input filtering, delimiters, and least-privilege tool access.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Data &amp; Model Poisoning</h3>
+                    <p class="mcp-card-description">Attackers corrupt training data to embed backdoors or bias. Mitigate with data provenance, validation, and integrity checks.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Sensitive Information Disclosure</h3>
+                    <p class="mcp-card-description">Models leak training data, secrets, or other users' content. Mitigate with PII redaction, output filtering, and DLP.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Model Theft &amp; Inversion</h3>
+                    <p class="mcp-card-description">Attackers extract model weights or reconstruct training data via queries. Mitigate with rate limits, watermarking, and monitoring.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Supply Chain Vulnerabilities</h3>
+                    <p class="mcp-card-description">Compromised models, dependencies, or plugins. Mitigate with SBOM, model signing, and vetting third-party components.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Improper Output Handling</h3>
+                    <p class="mcp-card-description">Unsanitized model output executed in downstream systems. Mitigate with output validation, encoding, and sandboxing.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">Excessive Agency</h3>
+                    <p class="mcp-card-description">Agents with too many tools or permissions take harmful actions. Mitigate with least privilege, approval gates, and guardrails.</p>
+                </div>
+                <div class="mcp-card threat-card">
+                    <h3 class="mcp-card-title">System Prompt Leakage</h3>
+                    <p class="mcp-card-description">Attackers extract hidden instructions. Treat prompts as sensitive secrets; monitor for extraction attempts.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">Security Controls for AI Systems</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Gateway &amp; Input Controls</h3>
+                    <p class="mcp-card-description">Model gateways, input rate limits, modality limits, input sanitization, and endpoint access controls protect the system boundary.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Guardrails &amp; Output Filtering</h3>
+                    <p class="mcp-card-description">Policy enforcement and output filters that block disallowed content, sensitive data, and harmful instructions.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Access Controls</h3>
+                    <p class="mcp-card-description">Model access, API access, network access, and endpoint access governed by authentication, authorization, and least privilege.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Data Security Controls</h3>
+                    <p class="mcp-card-description">Encryption at rest and in transit, data loss prevention, data lineage, and strict handling of sensitive training data.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Monitoring &amp; Auditing</h3>
+                    <p class="mcp-card-description">Model logs, telemetry, drift detection, and audit trails to detect misuse, degradation, and attacks.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Secure MLOps (MLSecOps)</h3>
+                    <p class="mcp-card-description">Integrate security into CI/CD for ML: signed artifacts, secure registries, SBOMs, and adversarial testing in DevSecOps pipelines.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">OWASP Top 10 for LLM Applications (2025)</h3>
+            <ol class="owasp-list">
+                <li>Prompt Injection</li>
+                <li>Sensitive Information Disclosure</li>
+                <li>Supply Chain</li>
+                <li>Data and Model Poisoning</li>
+                <li>Improper Output Handling</li>
+                <li>Excessive Agency</li>
+                <li>System Prompt Leakage</li>
+                <li>Vector and Embedding Weaknesses</li>
+                <li>Misinformation</li>
+                <li>Unbounded Consumption</li>
+            </ol>
+
+            <h3 class="mcp-subtitle">Governance, Risk &amp; Compliance Frameworks</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">NIST AI RMF</h3>
+                    <p class="mcp-card-description">The NIST AI Risk Management Framework guides organizations to govern, map, measure, and manage AI risk.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">EU AI Act</h3>
+                    <p class="mcp-card-description">Risk-tiered regulation of AI in the EU with obligations for high-risk systems, transparency, and human oversight.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">ISO/IEC 42001</h3>
+                    <p class="mcp-card-description">The AI management system standard for responsible AI governance, alongside ISO/IEC 23894 for AI risk management.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">OECD AI Principles</h3>
+                    <p class="mcp-card-description">Internationally endorsed principles for trustworthy, human-centric AI.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">GDPR &amp; Data Privacy</h3>
+                    <p class="mcp-card-description">Privacy by design, data subject rights, and lawful processing obligations applied to AI training and inference.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">MITRE ATLAS</h3>
+                    <p class="mcp-card-description">The Adversarial Threat Landscape for AI Systems — a knowledge base of tactics and techniques for AI-specific attacks.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>AI-Assisted Security in Action</h3>
+                <p>AI strengthens security operations through anomaly detection, UEBA, phishing triage, SOAR automation, and accelerated threat hunting. But AI also empowers attackers — automated exploit generation, polymorphic malware, and deepfakes. Every AI-enabled security tool introduces risks of its own: false positives, blind spots, and model drift. SecAI+ emphasizes keeping a human in the loop and validating AI output.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Lifecycle Section -->
+    <section class="mcp-section lifecycle-section">
+        <div class="mcp-container">
+            <h2 class="mcp-title">The AI &amp; ML Lifecycle</h2>
+            <p class="section-subtitle">From business problem to production and retirement — every stage introduces security, governance, and quality considerations.</p>
+
+            <div class="lifecycle">
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">01</span>
+                    <h4 class="lifecycle-title">Problem Definition</h4>
+                    <p class="lifecycle-desc">Clarify the business goal, success metrics, feasibility, and ethical constraints before any code is written.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">02</span>
+                    <h4 class="lifecycle-title">Data Collection &amp; Acquisition</h4>
+                    <p class="lifecycle-desc">Source, license, and vet data. Verify provenance to prevent poisoning and supply-chain risk.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">03</span>
+                    <h4 class="lifecycle-title">Data Preparation &amp; Labeling</h4>
+                    <p class="lifecycle-desc">Clean, transform, deduplicate, and label data. Detect and remove bias; protect PII and sensitive data.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">04</span>
+                    <h4 class="lifecycle-title">Feature Engineering</h4>
+                    <p class="lifecycle-desc">Select and construct features that capture signal. Track lineage so features remain reproducible.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">05</span>
+                    <h4 class="lifecycle-title">Model Training</h4>
+                    <p class="lifecycle-desc">Train candidate models with reproducible runs. Log hyperparameters, data version, and code version.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">06</span>
+                    <h4 class="lifecycle-title">Evaluation &amp; Validation</h4>
+                    <p class="lifecycle-desc">Test on held-out data and adversarial cases. Measure accuracy, fairness, robustness, and explainability.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">07</span>
+                    <h4 class="lifecycle-title">Model Registration</h4>
+                    <p class="lifecycle-desc">Register the winning model in a model registry with metadata, approvals, and version control.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">08</span>
+                    <h4 class="lifecycle-title">Deployment</h4>
+                    <p class="lifecycle-desc">Package and serve via batch, real-time API, or edge. Enforce access controls, rate limits, and observability.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">09</span>
+                    <h4 class="lifecycle-title">Monitoring &amp; Observability</h4>
+                    <p class="lifecycle-desc">Track drift, performance, latency, cost, and security events continuously (see the Monitoring section below).</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">10</span>
+                    <h4 class="lifecycle-title">Governance &amp; Compliance</h4>
+                    <p class="lifecycle-desc">Document, audit, and report model behavior to satisfy NIST AI RMF, EU AI Act, ISO 42001, and internal policy.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">11</span>
+                    <h4 class="lifecycle-title">Maintenance &amp; Retraining</h4>
+                    <p class="lifecycle-desc">Automatically trigger retraining on drift; promote and roll back models with CI/CD pipelines.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <span class="lifecycle-number">12</span>
+                    <h4 class="lifecycle-title">Retirement</h4>
+                    <p class="lifecycle-desc">Decommission models cleanly, archive artifacts and logs, and migrate consumers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitoring & Logging Section -->
+    <section class="mcp-section">
+        <div class="mcp-container">
+            <h2 class="mcp-title">Continuous Monitoring &amp; Logging</h2>
+            <p class="section-subtitle">Production AI degrades silently. Continuous monitoring and comprehensive logging are the difference between a reliable system and a liability.</p>
+
+            <h3 class="mcp-subtitle">What to Monitor</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Model Drift</h3>
+                    <p class="mcp-card-description">
+                        <strong>Data drift</strong> — input distributions shift. <strong>Concept drift</strong> — the underlying relationship changes. <strong>Prediction drift</strong> — output distributions change. Any drift signals the model is degrading.
+                    </p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Performance Metrics</h3>
+                    <p class="mcp-card-description">Accuracy, precision, recall, latency, throughput, error rates, and token usage. Track against baselines and alert on regressions.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Security Monitoring</h3>
+                    <p class="mcp-card-description">Detect prompt injection attempts, data exfiltration, model misuse, API abuse, and abnormal query patterns in real time.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Resource &amp; Cost Monitoring</h3>
+                    <p class="mcp-card-description">GPU/CPU utilization, memory, request volume, and API spend. Unbounded consumption attacks can be caught early.</p>
+                </div>
+            </div>
+
+            <h3 class="mcp-subtitle">Logging Best Practices</h3>
+            <ul class="info-list">
+                <li><strong>Prompt &amp; response logging</strong> — capture inputs, outputs, and reasoning traces for audit and debugging</li>
+                <li><strong>Model metadata</strong> — record model version, parameters, dataset version, and deployment environment</li>
+                <li><strong>Token &amp; cost accounting</strong> — track usage per user, session, and feature</li>
+                <li><strong>Error handling</strong> — log failures, retries, and fallback paths</li>
+                <li><strong>PII redaction</strong> — redact or tokenize sensitive data before persistence</li>
+                <li><strong>Retention &amp; compliance</strong> — align log retention with GDPR, EU AI Act, and audit requirements</li>
+                <li><strong>Access control</strong> — restrict who can read and modify logs; treat logs as security-sensitive data</li>
+                <li><strong>Alerting &amp; incident response</strong> — trigger playbooks on drift, security, and performance thresholds</li>
+            </ul>
+
+            <h3 class="mcp-subtitle">Monitoring &amp; Observability Tools</h3>
+            <div class="mcp-grid">
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">ML Platforms</h3>
+                    <p class="mcp-card-description">MLflow, Weights &amp; Biases, and Kubeflow for experiment tracking, model registry, and pipeline orchestration.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Drift &amp; Quality</h3>
+                    <p class="mcp-card-description">Evidently AI, Arize AI, and WhyLabs for data and concept drift detection and model quality dashboards.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">LLM Observability</h3>
+                    <p class="mcp-card-description">Langfuse, LangSmith, Helicone, and Traceloop for prompt traces, cost, and quality telemetry.</p>
+                </div>
+                <div class="mcp-card">
+                    <h3 class="mcp-card-title">Infrastructure</h3>
+                    <p class="mcp-card-description">Prometheus + Grafana, Datadog, CloudWatch, and the ELK stack for metrics, dashboards, and centralized logging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Roles Section -->
+    <section class="mcp-section">
+        <div class="mcp-container">
+            <h2 class="mcp-title">AI Roles &amp; Career Paths</h2>
+            <p class="section-subtitle">AI organizations are built on clearly defined roles. Here are the core positions, what they do, and the skills they require.</p>
+
+            <div class="role-grid">
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">MLOps Engineer</h3>
+                        <span class="role-badge">Operations</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Bridges data science and IT operations. Builds and maintains the infrastructure that trains, deploys, and monitors ML models in production, emphasizing automation, reliability, and repeatability.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Design CI/CD pipelines for ML (training, testing, deployment)</li>
+                            <li>Containerize and orchestrate model serving (Docker, Kubernetes)</li>
+                            <li>Implement model registries, versioning, and rollbacks</li>
+                            <li>Automate monitoring, drift detection, and retraining</li>
+                            <li>Optimize cost, latency, and scalability of inference</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">MLflow</span><span class="skill-tag">Python</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Terraform</span><span class="skill-tag">AWS/GCP/Azure</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">Data Scientist</h3>
+                        <span class="role-badge">Data</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Extracts insight and builds predictive models from data. Works closely with business stakeholders to translate questions into measurable problems and communicates results clearly.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Explore, visualize, and analyze complex datasets</li>
+                            <li>Build, validate, and tune statistical and ML models</li>
+                            <li>Design experiments and A/B tests</li>
+                            <li>Translate business questions into ML problems</li>
+                            <li>Communicate findings to non-technical stakeholders</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Python</span><span class="skill-tag">Pandas</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">SQL</span><span class="skill-tag">Statistics</span><span class="skill-tag">Jupyter</span><span class="skill-tag">Matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">AI Security Architect</h3>
+                        <span class="role-badge">Security</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Designs and oversees the security of AI systems end to end — from data pipelines and training infrastructure to deployed models and agentic workloads. Aligns AI risk management with frameworks such as NIST AI RMF, OWASP LLM Top 10, and MITRE ATLAS.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Threat-model AI systems and agentic workflows</li>
+                            <li>Define security controls for data, models, and inference layers</li>
+                            <li>Secure MLOps pipelines and model registries</li>
+                            <li>Lead AI incident response and adversarial testing</li>
+                            <li>Own AI governance, risk, and compliance alignment</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Threat Modeling</span><span class="skill-tag">OWASP LLM Top 10</span><span class="skill-tag">NIST AI RMF</span><span class="skill-tag">MITRE ATLAS</span><span class="skill-tag">Zero Trust</span><span class="skill-tag">Python</span><span class="skill-tag">Cloud Security</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">AI/ML Engineer</h3>
+                        <span class="role-badge">Engineering</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Builds and productionizes ML models and systems end to end. Implements algorithms, deploys them as reliable services, and integrates them with applications.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Develop and train ML models for production</li>
+                            <li>Build scalable inference services and APIs</li>
+                            <li>Integrate models with application backends</li>
+                            <li>Optimize model performance and accuracy</li>
+                            <li>Collaborate with data scientists and platform teams</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Python</span><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Docker</span><span class="skill-tag">Distributed Systems</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">Data Engineer</h3>
+                        <span class="role-badge">Data</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Builds the pipelines and infrastructure that make data available, reliable, and fast for analysis and ML. Owns the flow of data from source to consumption.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Design and maintain ETL/ELT pipelines</li>
+                            <li>Manage data warehouses, lakes, and lakehouses</li>
+                            <li>Ensure data quality, lineage, and governance</li>
+                            <li>Build real-time streaming pipelines</li>
+                            <li>Optimize data storage and query performance</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">SQL</span><span class="skill-tag">Python</span><span class="skill-tag">Spark</span><span class="skill-tag">Airflow</span><span class="skill-tag">dbt</span><span class="skill-tag">Snowflake/BigQuery</span><span class="skill-tag">Kafka</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">AI Engineer (GenAI/LLM)</h3>
+                        <span class="role-badge">Engineering</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Builds generative AI applications — RAG pipelines, chatbots, and agentic systems — using LLMs, embeddings, and orchestration frameworks. Connects models to real business workflows.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Build RAG and agentic applications with LLMs</li>
+                            <li>Design prompts and evaluation systems</li>
+                            <li>Integrate models with APIs, tools, and MCP servers</li>
+                            <li>Implement guardrails, logging, and cost controls</li>
+                            <li>Evaluate and fine-tune model behavior</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Python</span><span class="skill-tag">LangChain/LangGraph</span><span class="skill-tag">Vector DBs</span><span class="skill-tag">OpenAI APIs</span><span class="skill-tag">MCP</span><span class="skill-tag">Prompting</span><span class="skill-tag">RAG</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">ML Research Scientist</h3>
+                        <span class="role-badge">Research</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Advances the state of the art in machine learning through novel algorithms, experiments, and publications. Focuses on new model architectures and training methods.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Design and implement novel ML algorithms</li>
+                            <li>Run and document rigorous experiments</li>
+                            <li>Publish research and patent results</li>
+                            <li>Prototype models for product teams</li>
+                            <li>Stay current on the academic literature</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Python</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Linear Algebra</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">Research Methods</span><span class="skill-tag">Distributed Training</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">Prompt Engineer</h3>
+                        <span class="role-badge">Engineering</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Designs and optimizes the instructions that guide LLM and agent behavior. Turns vague requirements into precise, reliable system prompts and evaluation suites.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Write and iterate on system prompts and instructions</li>
+                            <li>Design few-shot examples and guardrails</li>
+                            <li>Build evaluation and regression suites</li>
+                            <li>Red-team prompts for injection resistance</li>
+                            <li>Document prompt patterns for the team</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">LLMs</span><span class="skill-tag">Prompting Techniques</span><span class="skill-tag">Python</span><span class="skill-tag">Evaluation</span><span class="skill-tag">Red Teaming</span><span class="skill-tag">RAG</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">Computer Vision Engineer</h3>
+                        <span class="role-badge">Engineering</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Builds systems that understand images and video — object detection, segmentation, facial recognition, and generative visual media.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Train and deploy vision models</li>
+                            <li>Build video and image processing pipelines</li>
+                            <li>Optimize inference on edge and GPU hardware</li>
+                            <li>Evaluate vision model robustness</li>
+                            <li>Handle adversarial image attacks</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Python</span><span class="skill-tag">PyTorch</span><span class="skill-tag">OpenCV</span><span class="skill-tag">CNNs</span><span class="skill-tag">Vision Transformers</span><span class="skill-tag">ONNX</span><span class="skill-tag">Edge Deployment</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">NLP Engineer</h3>
+                        <span class="role-badge">Engineering</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Builds systems that process and generate language — from search and classification to translation and conversational AI.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Fine-tune and deploy language models</li>
+                            <li>Build NLP pipelines (tokenization, embedding, classification)</li>
+                            <li>Develop conversational and QA systems</li>
+                            <li>Evaluate for bias and safety</li>
+                            <li>Monitor linguistic drift</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Python</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Transformers</span><span class="skill-tag">spaCy</span><span class="skill-tag">NLTK</span><span class="skill-tag">Vector Search</span><span class="skill-tag">Evaluation</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">AI Product Manager</h3>
+                        <span class="role-badge">Product</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Owns the vision, roadmap, and delivery of AI products. Translates technical capability into business value and coordinates teams, stakeholders, and risk.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Define AI product strategy and roadmap</li>
+                            <li>Prioritize features by value and feasibility</li>
+                            <li>Translate business needs for engineering</li>
+                            <li>Manage model quality, risk, and ethics reviews</li>
+                            <li>Track metrics and communicate launches</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">Product Strategy</span><span class="skill-tag">Roadmapping</span><span class="skill-tag">ML Fundamentals</span><span class="skill-tag">Stakeholder Mgmt</span><span class="skill-tag">Metrics</span><span class="skill-tag">Risk</span>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-header">
+                        <h3 class="role-title">AI Governance &amp; Ethics Officer</h3>
+                        <span class="role-badge">Governance</span>
+                    </div>
+                    <p class="role-desc"><strong>Job Description:</strong> Ensures AI is deployed responsibly, ethically, and in compliance with law and policy. Owns the governance structures, risk registers, and audit processes for AI.</p>
+                    <div class="role-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul>
+                            <li>Develop AI policies and principles</li>
+                            <li>Lead AI risk assessments and impact analyses</li>
+                            <li>Manage compliance with EU AI Act, GDPR, ISO 42001</li>
+                            <li>Oversee model documentation and audits</li>
+                            <li>Coordinate with the AI Center of Excellence</li>
+                        </ul>
+                    </div>
+                    <div class="role-skills">
+                        <h4>Core Skills</h4>
+                        <span class="skill-tag">GRC</span><span class="skill-tag">NIST AI RMF</span><span class="skill-tag">EU AI Act</span><span class="skill-tag">ISO 42001</span><span class="skill-tag">GDPR</span><span class="skill-tag">Data Privacy</span><span class="skill-tag">Audit</span>
+                    </div>
                 </div>
             </div>
         </div>
