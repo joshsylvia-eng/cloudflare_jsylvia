@@ -293,11 +293,6 @@ class AgenticAI {
     // Call LLM with context (Groq only for Cloudflare Pages)
     async callLLM(userQuery, context, toolsUsed, relevantLink) {
         try {
-            // Check if OpenAI library is loaded
-            if (typeof OpenAI === 'undefined') {
-                return "I'm experiencing technical difficulties with the AI library, but I'm here to help with your technology questions! As Josh Sylvia's AI assistant, I bring expertise in cybersecurity, cloud architecture, and AI development to solve your technical challenges.";
-            }
-
             let linkInstruction = '';
             if (relevantLink) {
                 linkInstruction = `\n\nIMPORTANT: Include this relevant link at the end of your response: ${relevantLink}`;
@@ -321,43 +316,38 @@ IMPORTANT: Keep your responses CONCISE - maximum 4-5 sentences. Be direct and to
         }
     }
 
-    // Call Groq API
+    // Call Groq API via server-side proxy (keeps the key out of the browser)
     async callGroq(userQuery, systemPrompt) {
         try {
             // Apply rate limiting
             await this.rateLimit();
-            
-            // Get API key from server
-            const response = await fetch('/api/groq-key');
-            const { apiKey } = await response.json();
-            
-            if (!apiKey || apiKey === 'your_groq_api_key_here') {
+
+            const response = await fetch('/api/agent-chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    messages: [
+                        {
+                            role: 'system',
+                            content: systemPrompt
+                        },
+                        {
+                            role: 'user',
+                            content: userQuery
+                        }
+                    ]
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
                 return "I'm currently in demo mode. To use the full AI capabilities, please configure your Groq API key. As Josh Sylvia's AI assistant, I bring expertise in cybersecurity, cloud architecture, and AI development to solve your technical challenges.";
             }
 
-            const client = new OpenAI({
-                apiKey: apiKey,
-                baseURL: 'https://api.groq.com/openai/v1',
-                dangerouslyAllowBrowser: true
-            });
-
-            const llmResponse = await client.chat.completions.create({
-                model: 'llama-3.1-8b-instant',
-                messages: [
-                    {
-                        role: 'system',
-                        content: systemPrompt
-                    },
-                    {
-                        role: 'user',
-                        content: userQuery
-                    }
-                ],
-                max_tokens: 400,
-                temperature: 0.7
-            });
-
-            return llmResponse.choices[0].message.content;
+            return data.response;
 
         } catch (error) {
             console.error('Error calling Groq API:', error);

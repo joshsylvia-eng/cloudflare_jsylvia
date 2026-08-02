@@ -1,14 +1,17 @@
-# Cache static assets
-/public/css/*
+# Cache static assets (publish root is public/, paths are served as /css/* etc.)
+/css/*
   Cache-Control: public, max-age=31536000, immutable
 
-/public/js/*
+/js/*
   Cache-Control: public, max-age=31536000, immutable
 
-/public/images/*
+/images/*
   Cache-Control: public, max-age=31536000
 
-/public/videos/*
+/videos/*
+  Cache-Control: public, max-age=86400
+
+/res/*
   Cache-Control: public, max-age=86400
 
 /*.html
@@ -16,7 +19,8 @@
 
 # Security headers
 /*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://kit.fontawesome.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://kit.fontawesome.com https://ka-f.fontawesome.com; img-src 'self' data: https:; font-src 'self' data: https://cdnjs.cloudflare.com https://kit.fontawesome.com https://ka-f.fontawesome.com; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()

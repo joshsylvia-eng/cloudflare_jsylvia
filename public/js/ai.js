@@ -95,24 +95,6 @@ async function loadNavigation() {
     }
 }
 
-// Initialize OpenAI library when page loads
-document.addEventListener('DOMContentLoaded', async function() {
-    console.log('OpenAI library loading...');
-    if (typeof OpenAI !== 'undefined') {
-        console.log('OpenAI library loaded successfully');
-    } else {
-        console.error('OpenAI library not loaded - waiting for library...');
-        // Retry after delay
-        setTimeout(() => {
-            if (typeof OpenAI !== 'undefined') {
-                console.log('OpenAI library loaded after retry');
-            } else {
-                console.error('OpenAI library still not available');
-            }
-        }, 2000);
-    }
-});
-
 // Set active navigation link based on current page
 function setActiveNavigation() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';

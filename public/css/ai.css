@@ -1,155 +1,8 @@
-/* Make favicon circular */
-link[rel="icon"] {
-    border-radius: 50%;
-}
-
-/* CSS Variables for Navigation */
+/* CSS Variables */
 :root {
     --primary-color: #4A90E2;
     --secondary-color: #357ABD;
     --accent-color: #2E7CD6;
-}
-
-/* Navigation Styles - Add these to ensure navbar works */
-.top-nav {
-    background: linear-gradient(135deg, #4A90E2, #357ABD);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    height: 70px;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.logo-container img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-    padding: 5px 0;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    opacity: 0.8;
-    border-bottom: 2px solid white;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background: white;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    z-index: 1001;
-    overflow-y: auto;
-}
-
-.sidebar.open {
-    right: 0;
-}
-
-.sidebar-header {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sidebar-brand {
-    display: flex;
-    align-items: center;
-    color: #333;
-    font-weight: bold;
-}
-
-.sidebar-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-}
-
-.sidebar-content {
-    padding: 20px;
-}
-
-.sidebar-section {
-    margin-bottom: 30px;
-}
-
-.sidebar-title {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.sidebar-nav {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-link {
-    display: block;
-    padding: 10px 0;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.sidebar-link:hover,
-.sidebar-link.active {
-    color: var(--primary-color);
 }
 
 /* Add padding for fixed navbar */
@@ -157,17 +10,7 @@ body {
     padding-top: 70px;
 }
 
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-}
-
-/* AI Page Specific Styles */
+/* AI Page Hero */
 .ai-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -209,69 +52,7 @@ body {
     opacity: 0.9;
 }
 
-.ai-sections {
-    padding: 80px 0;
-    background: #f8f9fa;
-}
-
-.ai-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.ai-section {
-    margin-bottom: 60px;
-}
-
-.ai-section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #333;
-    font-weight: bold;
-}
-
-.ai-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.ai-card {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ai-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.ai-card-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.ai-card-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-    text-align: center;
-}
-
-.ai-card-description {
-    color: #666;
-    line-height: 1.6;
-    text-align: center;
-}
-
+/* Chatbot Section */
 .chatbot-section {
     background: linear-gradient(135deg, #28a745 0%, #20bf6b 100%);
     color: white;
@@ -407,69 +188,6 @@ body {
     background: var(--secondary-color);
 }
 
-.mcp-section {
-    background: #f8f9fa;
-    padding: 60px 0;
-}
-
-.mcp-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.mcp-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.mcp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.mcp-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--primary-color);
-}
-
-.mcp-card-title {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: bold;
-}
-
-.mcp-card-description {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.mcp-status {
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.mcp-status.connected {
-    background: #d4edda;
-    color: #155724;
-}
-
-.mcp-status.disconnected {
-    background: #f8d7da;
-    color: #721c24;
-}
-
 .docker-info {
     background: #e9ecef;
     padding: 30px;
@@ -478,32 +196,7 @@ body {
     border-left: 4px solid #007bff;
 }
 
-.docker-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: bold;
-}
-
-.docker-description {
-    color: #666;
-    line-height: 1.6;
-    font-family: 'Courier New', monospace;
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-}
-
 @media (max-width: 768px) {
-    .ai-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .mcp-grid {
-        grid-template-columns: 1fr;
-    }
-
     .chat-input {
         flex-direction: column;
     }
@@ -513,36 +206,7 @@ body {
     }
 }
 
-/* AI Page Expansion Styles */
-.section-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 850px;
-    margin: 0 auto 40px;
-}
-
-.mcp-subtitle {
-    font-size: 1.5rem;
-    text-align: center;
-    color: #333;
-    font-weight: bold;
-    margin: 50px 0 30px;
-}
-
-.info-list {
-    text-align: left;
-    color: #666;
-    line-height: 1.9;
-    padding-left: 20px;
-    margin: 0;
-}
-
-.info-list li {
-    margin-bottom: 6px;
-}
-
+/* ===== Highlight box ===== */
 .highlight-box {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -563,203 +227,7 @@ body {
     margin: 0;
 }
 
-.threat-card {
-    border-left: 4px solid #dc3545;
-}
-
-.owasp-list {
-    max-width: 700px;
-    margin: 0 auto 20px;
-    background: white;
-    border-radius: 12px;
-    padding: 25px 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.owasp-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    color: #444;
-    font-weight: 500;
-}
-
-.owasp-list li:last-child {
-    border-bottom: none;
-}
-
-/* AI/ML Lifecycle timeline */
-.lifecycle-section {
-    background: #f8f9fa;
-}
-
-.lifecycle {
-    max-width: 850px;
-    margin: 0 auto;
-    position: relative;
-    padding-left: 40px;
-}
-
-.lifecycle::before {
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
-}
-
-.lifecycle-step {
-    position: relative;
-    background: white;
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid var(--primary-color);
-}
-
-.lifecycle-step::before {
-    content: '';
-    position: absolute;
-    left: -34px;
-    top: 24px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    border: 3px solid white;
-    box-shadow: 0 0 0 2px var(--primary-color);
-}
-
-.lifecycle-number {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white;
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding: 3px 12px;
-    border-radius: 20px;
-    margin-bottom: 8px;
-}
-
-.lifecycle-title {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 6px;
-}
-
-.lifecycle-desc {
-    color: #666;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* AI role cards */
-.role-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.role-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--primary-color);
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.role-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.role-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.role-title {
-    font-size: 1.4rem;
-    color: #333;
-    margin: 0;
-}
-
-.role-badge {
-    background: #e8f0fe;
-    color: var(--primary-color);
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 4px 12px;
-    border-radius: 20px;
-    white-space: nowrap;
-}
-
-.role-desc {
-    color: #444;
-    line-height: 1.7;
-    background: #f8f9fa;
-    border-left: 4px solid var(--primary-color);
-    padding: 14px 16px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 18px;
-}
-
-.role-responsibilities h4,
-.role-skills h4 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    color: #666;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
-}
-
-.role-responsibilities ul {
-    color: #555;
-    line-height: 1.8;
-    padding-left: 18px;
-    margin: 0 0 18px;
-}
-
-.skill-tag {
-    display: inline-block;
-    background: #e9ecef;
-    color: #333;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin: 0 6px 8px 0;
-}
-
-@media (max-width: 768px) {
-    .role-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .role-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .lifecycle {
-        padding-left: 30px;
-    }
-
-    .lifecycle-step::before {
-        left: -26px;
-    }
-}
-
-/* ===== Compact layout + TOC sidebar ===== */
+/* ===== TOC sidebar ===== */
 .ai-layout {
     display: flex;
     gap: 30px;
@@ -952,10 +420,6 @@ body {
     column-gap: 26px;
 }
 
-.plain-list.risk-list li::before {
-    background: #dc3545;
-}
-
 /* ===== Status strip ===== */
 .status-strip {
     list-style: none;
@@ -1100,6 +564,29 @@ body {
     font-size: 1.05em;
     margin: 0 0 8px 0;
     color: #333;
+}
+
+.role-num {
+    display: inline-block;
+    min-width: 24px;
+    margin-right: 8px;
+    padding: 2px 6px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 0.72em;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.role-badge {
+    background: #e8f0fe;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
 
 .role-jd {

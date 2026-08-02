@@ -1,120 +1,103 @@
-# Josh Sylvia Tech - Cloudflare Pages Deployment
+# Josh Sylvia Tech - Cloudflare Pages Site
 
-This is a Cloudflare Pages-compatible version of Josh Sylvia's AI chatbot application. It has been optimized for serverless deployment on Cloudflare Pages with Functions.
+Josh Sylvia's personal portfolio site — a **static multi-page site** deployed on **Cloudflare Pages**. It showcases AI/automation, API, cybersecurity, QA, and tutorial content, plus a resume and contact form. The site is fully serverless: no build step, no framework, no backend server (only Cloudflare Pages Functions).
 
-## 🚀 Deployment Instructions
+## 🚀 Deployment
 
-### Prerequisites
-- Cloudflare account
-- Groq API key
+### Auto-deploy (preferred)
+Every push to the GitHub `main` branch (origin `https://github.com/joshsylvia-eng/cloudflare_jsylvia`) triggers a production deploy via Cloudflare Pages.
 
-### Setup
+- **Build command:** no-op (static site, no build required)
+- **Build output directory:** `public`
 
-1. **Create a new Git repository** with the contents of this folder
-2. **Connect to Cloudflare Pages**:
-   - Go to Cloudflare Dashboard > Pages
-   - Click "Create a project"
-   - Connect to your Git repository
-   - Set build settings:
-     - **Build command**: `echo "No build required"`
-     - **Build output directory**: `public`
-   - Click "Save and Deploy"
+### Manual deploy
+```bash
+npm run deploy   # wrangler pages deploy
+```
 
-3. **Configure Environment Variables**:
-   In Cloudflare Pages dashboard > Settings > Environment variables:
-   ```
-   GROQ_API_KEY=your_groq_api_key_here
-   CONTACT_EMAIL=joshsylvia@yahoo.com
-   ```
+### Local development
+```bash
+npm install
+npm run dev      # wrangler pages dev public → http://localhost:8788
+```
 
-### Environment Variables
+## 🔧 Environment Variables
+
+Set these in Cloudflare Pages dashboard > Settings > Environment variables (never committed):
 
 ```env
 GROQ_API_KEY=your_groq_api_key_here
-CONTACT_EMAIL=joshsylvia@yahoo.com
+CONTACT_EMAIL=joshsylvia@gmail.com
+RESEND_API_KEY=your_resend_api_key_here
 ```
+
+Template in `.env.example`.
 
 ## 🛠️ Architecture
 
-### Cloudflare Pages Functions
-- `functions/api/health.js` - Health check endpoint
-- `functions/api/groq-key.js` - Groq API key endpoint
-- `functions/api/ollama-status.js` - Ollama status (returns not available)
-- `functions/api/agent-search.js` - Knowledge base search
-- `functions/api/agent-skills.js` - Skills information
-- `functions/api/agent-experience.js` - Experience information
-- `functions/api/agent-contact.js` - Contact information
-- `functions/api/contact.js` - Contact form submission
-- `functions/api/videos.js` - Videos listing
+### Pages (static content in `public/`)
+| Page | Topic |
+|---|---|
+| `index.html` | Home / hero (embeds the compressed Guatemala travel video) |
+| `ai.html` | AI & Automation: lifecycle (top), MCP, RAG, Agentic AI, AI Security (OWASP/controls/GRC), monitoring, numbered roles, chatbot |
+| `apis.html` | REST API documentation and integration guides |
+| `cybersecurity.html` | Security content, CISSP expertise, TOC sidebar pattern |
+| `qa.html` | QA/testing content |
+| `tutorials.html` | Video tutorials |
+| `playground.html` | Interactive demos (Monaco editor) |
+| `about.html` | Bio, skills, experience |
+| `contact.html` | Contact form |
 
-### Frontend
-- Static HTML, CSS, and JavaScript files in `public/`
-- AI agent uses Groq API only (Ollama removed for Cloudflare compatibility)
-- Rate limiting implemented on client-side
+- Plain static HTML/CSS/JS — no frameworks, no bundlers, no runtime npm packages.
+- Shared navigation in `public/components/navigation.html`, loaded per page via `loadNavigation()`.
+- Per-page CSS in `public/css/<page>.css`; `main.css` / `navigation.css` shared.
+- `ai.html` and `cybersecurity.html` use the TOC sidebar pattern (sticky nav, mobile toggle, scroll-spy).
+
+### Cloudflare Pages Functions (`functions/api/`)
+Each file exports `onRequestGet` / `onRequestPost`.
+
+- `health.js` — health check
+- `agent-chat.js` — server-side Groq chat proxy (keeps `GROQ_API_KEY` out of the browser)
+- `ollama-status.js` — returns not available
+- `agent-search.js` — POST knowledge-base search over an inline index
+- `agent-skills.js` — skills info
+- `agent-experience.js` — experience info
+- `agent-contact.js` — contact info
+- `contact.js` — contact form submission (email via Resend)
+- `videos.js` — video listing
 
 ## ⚙️ Configuration Files
 
-- `_headers` - Cache control and security headers
-- `_redirects` - URL routing rules
-- `package.json` - Dependencies for local development
-- `.env.example` - Environment variable template
+- `_headers` — Cache-Control + security headers (CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy). Note: cache paths are `/css/*`, `/js/*`, `/images/*`, `/videos/*` (publish root is `public/`).
+- `_redirects` — `/api/*` → Pages Functions.
+- `package.json` — dev tooling (wrangler devDependency).
+- `.env.example` — env var template.
+- `AGENTS.md` — guidance for AI agents working on this repo.
 
-## 🔧 Local Development
+## 📏 Limits That Matter
 
-```bash
-# Install dependencies
-npm install
-
-# Start local development server
-npx wrangler pages dev public
-
-# Or use the package script
-npm run dev
-```
-
-## 📝 Changes from Original
-
-### Removed for Cloudflare Compatibility:
-- ❌ PostgreSQL database (replaced with static data)
-- ❌ Ollama local model (replaced with Groq-only)
-- ❌ Express.js server (replaced with Cloudflare Functions)
-- ❌ Server-side middleware (compression, rate limiting moved to client-side)
-- ❌ WebSocket support
-- ❌ SSL certificate management
-
-### Added for Cloudflare:
-- ✅ Cloudflare Pages Functions architecture
-- ✅ Static data for skills, experience, and search
-- ✅ Client-side rate limiting
-- ✅ Cloudflare-specific headers and redirects
-- ✅ Environment variable support via Cloudflare dashboard
-
-## 🎯 Features
-
-- **AI Chatbot**: Powered by Groq Llama 3.1 8B Instant model
-- **Agentic AI**: Tool-calling capabilities with search, skills, experience, and contact tools
-- **Static Site**: Fast loading with Cloudflare CDN
-- **Serverless**: No server management required
-- **Global CDN**: Automatic worldwide distribution
-
-## 📊 Performance
-
-- **Response Time**: <100ms average (Cloudflare CDN)
-- **Cold Start**: ~50ms for Functions
-- **Cache Hit Rate**: High with static asset caching
-- **Bandwidth**: Optimized with compression headers
+- **Cloudflare Pages:** 25 MiB max per asset, 20,000 files on the free tier.
+- **GitHub:** warns ≥50 MB, hard-blocks pushes of files ≥100 MB.
+- Videos must be compressed to fit (see `public/videos/Engineering Abroad Guatemala 1080.mp4`, ~21 MiB after 2-pass x264 at 720p).
 
 ## 🔒 Security
 
-- **API Key Protection**: Environment-based configuration
-- **CORS Headers**: Configured for API access
-- **Security Headers**: X-Content-Type-Options, X-Frame-Options, etc.
-- **Rate Limiting**: Client-side implementation
+- `GROQ_API_KEY` is never exposed to the browser — the chatbot calls `/api/agent-chat`, which proxies to Groq server-side.
+- Security headers applied globally via `_headers`, including a Content-Security-Policy scoped to self + the site's CDNs (cdnjs, Font Awesome kit, unpkg for Monaco).
+
+## 📝 Known Dead Assets / Refactor Targets
+
+- `public/css/ai.css` — old "AI Page Expansion Styles" block (`.lifecycle`, `.role-card`, `.role-grid`, `.threat-card`, `.skill-tag`, `.risk-list`, etc.) is dead after the TOC-sidebar reformat
+- `public/ai.html` — stale Docker section and skypack OpenAI import already removed; keep them gone
+- `functions/api/groq-key.js` — removed (exposed the key to the client); replaced by `functions/api/agent-chat.js`
+
+## 🤖 AI Assistant Status
+
+The interactive AI assistant on `ai.html` is **under construction** ("Due to recent server migration, AI assistant full feature broke."). It shows an "Under Construction" notice and does not present the assistant as functional.
 
 ## 📞 Support
 
-For issues or questions:
-- Email: joshsylvia@yahoo.com
+- Email: joshsylvia@gmail.com
 - GitHub: https://github.com/joshsylvia-eng
 
 ---

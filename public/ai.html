@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Josh Sylvia Tech - AI Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="module">
-    import OpenAI from 'https://cdn.skypack.dev/openai';
-    window.OpenAI = OpenAI;
-</script>
     <link rel="stylesheet" href="css/ai.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -39,18 +35,17 @@
             <nav class="toc-nav" id="tocNav">
                 <h3 class="toc-title">Topics</h3>
                 <ul class="toc-list">
+                    <li><a href="#ai-lifecycle" class="toc-link">AI/ML Lifecycle</a></li>
                     <li><a href="#mcp" class="toc-link">MCP Integration</a></li>
                     <li><a href="#rag" class="toc-link">Retrieval-Augmented Generation</a></li>
                     <li><a href="#agentic-ai" class="toc-link">Agentic AI</a></li>
                     <li><a href="#ai-security" class="toc-link">AI Security (SecAI+)</a>
                         <ul class="toc-sublist">
-                            <li><a href="#secai-domains" class="toc-link">SecAI+ Domains</a></li>
                             <li><a href="#owasp-llm" class="toc-link">OWASP Top 10 for LLMs</a></li>
                             <li><a href="#ai-controls" class="toc-link">AI Security Controls</a></li>
                             <li><a href="#ai-grc" class="toc-link">AI GRC Frameworks</a></li>
                         </ul>
                     </li>
-                    <li><a href="#ai-lifecycle" class="toc-link">AI/ML Lifecycle</a></li>
                     <li><a href="#monitoring-logging" class="toc-link">Monitoring &amp; Logging</a></li>
                     <li><a href="#ai-roles" class="toc-link">AI Roles &amp; Careers</a></li>
                     <li><a href="#chatbot" class="toc-link">AI Assistant</a></li>
@@ -60,6 +55,45 @@
 
         <!-- Main Content Area -->
         <main class="ai-content">
+
+            <!-- AI Lifecycle Section -->
+            <section id="ai-lifecycle" class="content-section">
+                <h2 class="section-title">AI/ML Lifecycle</h2>
+                <p class="section-intro">
+                    From business problem to production and retirement — every stage introduces security, governance, and quality considerations.
+                </p>
+
+                <div class="lifecycle-circle" role="img" aria-label="AI/ML lifecycle circle">
+                    <span class="lc-center">AI/ML<br>Lifecycle</span>
+                    <div class="lc-node" style="transform: rotate(0deg) translate(0, calc(-1*var(--r))) rotate(0deg);" title="1. Problem Definition"><span class="lc-num">01</span><span class="lc-label">Problem</span></div>
+                    <div class="lc-node" style="transform: rotate(30deg) translate(0, calc(-1*var(--r))) rotate(-30deg);" title="2. Data Collection"><span class="lc-num">02</span><span class="lc-label">Data</span></div>
+                    <div class="lc-node" style="transform: rotate(60deg) translate(0, calc(-1*var(--r))) rotate(-60deg);" title="3. Data Preparation"><span class="lc-num">03</span><span class="lc-label">Prepare</span></div>
+                    <div class="lc-node" style="transform: rotate(90deg) translate(0, calc(-1*var(--r))) rotate(-90deg);" title="4. Feature Engineering"><span class="lc-num">04</span><span class="lc-label">Features</span></div>
+                    <div class="lc-node" style="transform: rotate(120deg) translate(0, calc(-1*var(--r))) rotate(-120deg);" title="5. Model Training"><span class="lc-num">05</span><span class="lc-label">Train</span></div>
+                    <div class="lc-node" style="transform: rotate(150deg) translate(0, calc(-1*var(--r))) rotate(-150deg);" title="6. Evaluation & Validation"><span class="lc-num">06</span><span class="lc-label">Evaluate</span></div>
+                    <div class="lc-node" style="transform: rotate(180deg) translate(0, calc(-1*var(--r))) rotate(-180deg);" title="7. Model Registration"><span class="lc-num">07</span><span class="lc-label">Register</span></div>
+                    <div class="lc-node" style="transform: rotate(210deg) translate(0, calc(-1*var(--r))) rotate(-210deg);" title="8. Deployment"><span class="lc-num">08</span><span class="lc-label">Deploy</span></div>
+                    <div class="lc-node" style="transform: rotate(240deg) translate(0, calc(-1*var(--r))) rotate(-240deg);" title="9. Monitoring & Observability"><span class="lc-num">09</span><span class="lc-label">Monitor</span></div>
+                    <div class="lc-node" style="transform: rotate(270deg) translate(0, calc(-1*var(--r))) rotate(-270deg);" title="10. Governance & Compliance"><span class="lc-num">10</span><span class="lc-label">Govern</span></div>
+                    <div class="lc-node" style="transform: rotate(300deg) translate(0, calc(-1*var(--r))) rotate(-300deg);" title="11. Maintenance & Retraining"><span class="lc-num">11</span><span class="lc-label">Retrain</span></div>
+                    <div class="lc-node" style="transform: rotate(330deg) translate(0, calc(-1*var(--r))) rotate(-330deg);" title="12. Retirement"><span class="lc-num">12</span><span class="lc-label">Retire</span></div>
+                </div>
+
+                <ol class="lc-legend">
+                    <li><strong>Problem Definition</strong> — clarify the business goal, success metrics, feasibility, and ethical constraints</li>
+                    <li><strong>Data Collection &amp; Acquisition</strong> — source, license, and vet data; verify provenance to prevent poisoning</li>
+                    <li><strong>Data Preparation &amp; Labeling</strong> — clean and label; detect bias; protect PII and sensitive data</li>
+                    <li><strong>Feature Engineering</strong> — select and construct features; track lineage for reproducibility</li>
+                    <li><strong>Model Training</strong> — reproducible runs with hyperparameters, data version, and code version logged</li>
+                    <li><strong>Evaluation &amp; Validation</strong> — test on held-out and adversarial cases; measure accuracy, fairness, robustness</li>
+                    <li><strong>Model Registration</strong> — register in a model registry with metadata, approvals, and version control</li>
+                    <li><strong>Deployment</strong> — batch, real-time API, or edge with access controls, rate limits, and observability</li>
+                    <li><strong>Monitoring &amp; Observability</strong> — track drift, performance, latency, cost, and security events continuously</li>
+                    <li><strong>Governance &amp; Compliance</strong> — document and audit behavior for NIST AI RMF, EU AI Act, ISO 42001</li>
+                    <li><strong>Maintenance &amp; Retraining</strong> — trigger retraining on drift; promote and roll back with CI/CD</li>
+                    <li><strong>Retirement</strong> — decommission cleanly, archive artifacts and logs, migrate consumers</li>
+                </ol>
+            </section>
 
             <!-- MCP Integration Section -->
             <section id="mcp" class="content-section">
@@ -167,16 +201,6 @@
                     <li><strong>IT Operations / Self-Healing</strong> — detect incidents, diagnose, and apply approved remediation</li>
                     <li><strong>Business Process Orchestration</strong> — automate multi-system workflows</li>
                 </ul>
-
-                <h3 class="subsection-title">Agentic AI Risks</h3>
-                <ul class="plain-list cols-2 risk-list">
-                    <li><strong>Excessive Agency</strong> — too many tools or permissions let agents take harmful, irreversible actions; least privilege is mandatory</li>
-                    <li><strong>Tool &amp; Privilege Abuse</strong> — compromised prompts chain into tool misuse and exfiltration</li>
-                    <li><strong>Prompt Injection via Data</strong> — malicious content in fetched documents manipulates agent behavior</li>
-                    <li><strong>Hallucination &amp; Overreliance</strong> — confident but wrong outputs trusted without verification</li>
-                    <li><strong>Unbounded Consumption</strong> — runaway loops burn tokens, quota, and cost; set hard budgets</li>
-                    <li><strong>Supply Chain &amp; Auditability</strong> — vet third-party plugins and record every action for audit</li>
-                </ul>
             </section>
 
             <!-- AI Security Section -->
@@ -190,14 +214,6 @@
                     <h3>What Is CompTIA SecAI+?</h3>
                     <p>SecAI+ (Security Artificial Intelligence Plus, exam CY0-001, launched February 17, 2026) is CompTIA's expansion certification focused specifically on AI security. It validates practical, vendor-neutral skills for defending AI systems, applying AI responsibly inside security operations, and managing the governance, risk, and compliance obligations of AI-enabled environments. Recommended experience: 3-4 years of IT experience with roughly 2 years of hands-on cybersecurity.</p>
                 </div>
-
-                <h3 id="secai-domains" class="subsection-title">The Four SecAI+ Domains</h3>
-                <ul class="plain-list cols-2">
-                    <li><strong>1. Basic AI Concepts (17%)</strong> — machine learning, deep learning, NLP, and automation; AI in threat detection; and AI-driven threats like automated phishing, polymorphic malware, and adversarial ML</li>
-                    <li><strong>2. Securing AI Systems (40%)</strong> — technical controls for AI systems, data, and models; secure on-prem/cloud/hybrid deployments; mitigate adversarial risk across model, pipeline, and inference layers</li>
-                    <li><strong>3. AI-Assisted Security (24%)</strong> — AI for detection and response, workflow automation, and threat modeling, behavior analysis, and continuous monitoring</li>
-                    <li><strong>4. AI Governance, Risk &amp; Compliance (19%)</strong> — EU AI Act, OECD, ISO AI standards, NIST AI RMF, and GDPR applied across the AI lifecycle for responsible AI</li>
-                </ul>
 
                 <h3 id="owasp-llm" class="subsection-title">OWASP Top 10 for LLM Applications (2025)</h3>
                 <ol class="owasp-list">
@@ -237,45 +253,6 @@
                     <h3>AI-Assisted Security in Action</h3>
                     <p>AI strengthens security operations through anomaly detection, UEBA, phishing triage, SOAR automation, and accelerated threat hunting. But AI also empowers attackers — automated exploit generation, polymorphic malware, and deepfakes. Every AI-enabled security tool introduces risks of its own: false positives, blind spots, and model drift. SecAI+ emphasizes keeping a human in the loop and validating AI output.</p>
                 </div>
-            </section>
-
-            <!-- AI Lifecycle Section -->
-            <section id="ai-lifecycle" class="content-section">
-                <h2 class="section-title">AI/ML Lifecycle</h2>
-                <p class="section-intro">
-                    From business problem to production and retirement — every stage introduces security, governance, and quality considerations.
-                </p>
-
-                <div class="lifecycle-circle" role="img" aria-label="AI/ML lifecycle circle">
-                    <span class="lc-center">AI/ML<br>Lifecycle</span>
-                    <div class="lc-node" style="transform: rotate(0deg) translate(0, calc(-1*var(--r))) rotate(0deg);" title="1. Problem Definition"><span class="lc-num">01</span><span class="lc-label">Problem</span></div>
-                    <div class="lc-node" style="transform: rotate(30deg) translate(0, calc(-1*var(--r))) rotate(-30deg);" title="2. Data Collection"><span class="lc-num">02</span><span class="lc-label">Data</span></div>
-                    <div class="lc-node" style="transform: rotate(60deg) translate(0, calc(-1*var(--r))) rotate(-60deg);" title="3. Data Preparation"><span class="lc-num">03</span><span class="lc-label">Prepare</span></div>
-                    <div class="lc-node" style="transform: rotate(90deg) translate(0, calc(-1*var(--r))) rotate(-90deg);" title="4. Feature Engineering"><span class="lc-num">04</span><span class="lc-label">Features</span></div>
-                    <div class="lc-node" style="transform: rotate(120deg) translate(0, calc(-1*var(--r))) rotate(-120deg);" title="5. Model Training"><span class="lc-num">05</span><span class="lc-label">Train</span></div>
-                    <div class="lc-node" style="transform: rotate(150deg) translate(0, calc(-1*var(--r))) rotate(-150deg);" title="6. Evaluation & Validation"><span class="lc-num">06</span><span class="lc-label">Evaluate</span></div>
-                    <div class="lc-node" style="transform: rotate(180deg) translate(0, calc(-1*var(--r))) rotate(-180deg);" title="7. Model Registration"><span class="lc-num">07</span><span class="lc-label">Register</span></div>
-                    <div class="lc-node" style="transform: rotate(210deg) translate(0, calc(-1*var(--r))) rotate(-210deg);" title="8. Deployment"><span class="lc-num">08</span><span class="lc-label">Deploy</span></div>
-                    <div class="lc-node" style="transform: rotate(240deg) translate(0, calc(-1*var(--r))) rotate(-240deg);" title="9. Monitoring & Observability"><span class="lc-num">09</span><span class="lc-label">Monitor</span></div>
-                    <div class="lc-node" style="transform: rotate(270deg) translate(0, calc(-1*var(--r))) rotate(-270deg);" title="10. Governance & Compliance"><span class="lc-num">10</span><span class="lc-label">Govern</span></div>
-                    <div class="lc-node" style="transform: rotate(300deg) translate(0, calc(-1*var(--r))) rotate(-300deg);" title="11. Maintenance & Retraining"><span class="lc-num">11</span><span class="lc-label">Retrain</span></div>
-                    <div class="lc-node" style="transform: rotate(330deg) translate(0, calc(-1*var(--r))) rotate(-330deg);" title="12. Retirement"><span class="lc-num">12</span><span class="lc-label">Retire</span></div>
-                </div>
-
-                <ol class="lc-legend">
-                    <li><strong>Problem Definition</strong> — clarify the business goal, success metrics, feasibility, and ethical constraints</li>
-                    <li><strong>Data Collection &amp; Acquisition</strong> — source, license, and vet data; verify provenance to prevent poisoning</li>
-                    <li><strong>Data Preparation &amp; Labeling</strong> — clean and label; detect bias; protect PII and sensitive data</li>
-                    <li><strong>Feature Engineering</strong> — select and construct features; track lineage for reproducibility</li>
-                    <li><strong>Model Training</strong> — reproducible runs with hyperparameters, data version, and code version logged</li>
-                    <li><strong>Evaluation &amp; Validation</strong> — test on held-out and adversarial cases; measure accuracy, fairness, robustness</li>
-                    <li><strong>Model Registration</strong> — register in a model registry with metadata, approvals, and version control</li>
-                    <li><strong>Deployment</strong> — batch, real-time API, or edge with access controls, rate limits, and observability</li>
-                    <li><strong>Monitoring &amp; Observability</strong> — track drift, performance, latency, cost, and security events continuously</li>
-                    <li><strong>Governance &amp; Compliance</strong> — document and audit behavior for NIST AI RMF, EU AI Act, ISO 42001</li>
-                    <li><strong>Maintenance &amp; Retraining</strong> — trigger retraining on drift; promote and roll back with CI/CD</li>
-                    <li><strong>Retirement</strong> — decommission cleanly, archive artifacts and logs, migrate consumers</li>
-                </ol>
             </section>
 
             <!-- Monitoring & Logging Section -->
@@ -318,79 +295,79 @@
             <section id="ai-roles" class="content-section">
                 <h2 class="section-title">AI Roles &amp; Career Paths</h2>
                 <p class="section-intro">
-                    AI organizations are built on clearly defined roles. Here are the core positions and the skills they require.
+                    AI organizations are built on clearly defined roles. Numbered in pipeline order — from defining the problem to governing the deployed system — here are the core positions and the skills they require.
                 </p>
 
                 <div class="roles-list">
                     <div class="role-row">
-                        <h4 class="role-name">MLOps Engineer <span class="role-badge">Operations</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Bridges data science and IT operations — building and maintaining the infrastructure that trains, deploys, and monitors ML models in production, with emphasis on automation and reliability.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Docker · Kubernetes · MLflow · Python · CI/CD · Terraform · AWS/GCP/Azure</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">Data Scientist <span class="role-badge">Data</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Extracts insight and builds predictive models from data, translating business questions into measurable ML problems and communicating results clearly to stakeholders.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Python · Pandas · Scikit-learn · SQL · Statistics · Jupyter · Matplotlib</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">AI Security Architect <span class="role-badge">Security</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Designs and oversees security for AI systems end to end — data pipelines, training infrastructure, deployed models, and agentic workloads — aligned with NIST AI RMF, OWASP LLM Top 10, and MITRE ATLAS.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Threat Modeling · OWASP LLM Top 10 · NIST AI RMF · MITRE ATLAS · Zero Trust · Python · Cloud Security</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">AI/ML Engineer <span class="role-badge">Engineering</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Builds and productionizes ML models and systems end to end — implementing algorithms, deploying reliable services, and integrating them with applications.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · TensorFlow · FastAPI · Docker · Distributed Systems</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">Data Engineer <span class="role-badge">Data</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Builds the pipelines and infrastructure that make data available, reliable, and fast for analysis and ML, owning data flow from source to consumption.</p>
-                        <p class="role-meta"><strong>Skills:</strong> SQL · Python · Spark · Airflow · dbt · Snowflake/BigQuery · Kafka</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">AI Engineer (GenAI/LLM) <span class="role-badge">Engineering</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Builds generative AI applications — RAG pipelines, chatbots, and agentic systems — using LLMs, embeddings, and orchestration frameworks, connected to real business workflows.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Python · LangChain/LangGraph · Vector DBs · OpenAI APIs · MCP · Prompting · RAG</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">ML Research Scientist <span class="role-badge">Research</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Advances the state of the art in machine learning through novel algorithms, rigorous experiments, and publications, focusing on new model architectures and training methods.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · Linear Algebra · Deep Learning · Research Methods · Distributed Training</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">Prompt Engineer <span class="role-badge">Engineering</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Designs and optimizes the instructions that guide LLM and agent behavior — turning vague requirements into precise, reliable system prompts and evaluation suites.</p>
-                        <p class="role-meta"><strong>Skills:</strong> LLMs · Prompting Techniques · Python · Evaluation · Red Teaming · RAG</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">Computer Vision Engineer <span class="role-badge">Engineering</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Builds systems that understand images and video — object detection, segmentation, facial recognition, and generative visual media.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · OpenCV · CNNs · Vision Transformers · ONNX · Edge Deployment</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">NLP Engineer <span class="role-badge">Engineering</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Builds systems that process and generate language — from search and classification to translation and conversational AI.</p>
-                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · Transformers · spaCy · NLTK · Vector Search · Evaluation</p>
-                    </div>
-
-                    <div class="role-row">
-                        <h4 class="role-name">AI Product Manager <span class="role-badge">Product</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Owns the vision, roadmap, and delivery of AI products — translating technical capability into business value and coordinating teams, stakeholders, and risk.</p>
+                        <h4 class="role-name"><span class="role-num">1</span> AI Product Manager <span class="role-badge">Product</span></h4>
+                        <p class="role-jd"><strong>Problem Definition:</strong> Owns the vision, roadmap, and delivery of AI products — translating technical capability into business value and coordinating teams, stakeholders, and risk.</p>
                         <p class="role-meta"><strong>Skills:</strong> Product Strategy · Roadmapping · ML Fundamentals · Stakeholder Mgmt · Metrics · Risk</p>
                     </div>
 
                     <div class="role-row">
-                        <h4 class="role-name">AI Governance &amp; Ethics Officer <span class="role-badge">Governance</span></h4>
-                        <p class="role-jd"><strong>Job Description:</strong> Ensures AI is deployed responsibly, ethically, and in compliance with law and policy — owning governance structures, risk registers, and audit processes.</p>
+                        <h4 class="role-name"><span class="role-num">2</span> Data Engineer <span class="role-badge">Data</span></h4>
+                        <p class="role-jd"><strong>Data Collection:</strong> Builds the pipelines and infrastructure that make data available, reliable, and fast for analysis and ML, owning data flow from source to consumption.</p>
+                        <p class="role-meta"><strong>Skills:</strong> SQL · Python · Spark · Airflow · dbt · Snowflake/BigQuery · Kafka</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">3</span> Data Scientist <span class="role-badge">Data</span></h4>
+                        <p class="role-jd"><strong>Data Preparation:</strong> Extracts insight and builds predictive models from data, translating business questions into measurable ML problems and communicating results clearly to stakeholders.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Python · Pandas · Scikit-learn · SQL · Statistics · Jupyter · Matplotlib</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">4</span> ML Research Scientist <span class="role-badge">Research</span></h4>
+                        <p class="role-jd"><strong>Model Training:</strong> Advances the state of the art in machine learning through novel algorithms, rigorous experiments, and publications, focusing on new model architectures and training methods.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · Linear Algebra · Deep Learning · Research Methods · Distributed Training</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">5</span> AI/ML Engineer <span class="role-badge">Engineering</span></h4>
+                        <p class="role-jd"><strong>Feature &amp; Training:</strong> Builds and productionizes ML models and systems end to end — implementing algorithms, deploying reliable services, and integrating them with applications.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · TensorFlow · FastAPI · Docker · Distributed Systems</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">6</span> AI Engineer (GenAI/LLM) <span class="role-badge">Engineering</span></h4>
+                        <p class="role-jd"><strong>Evaluation &amp; Deployment:</strong> Builds generative AI applications — RAG pipelines, chatbots, and agentic systems — using LLMs, embeddings, and orchestration frameworks, connected to real business workflows.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Python · LangChain/LangGraph · Vector DBs · OpenAI APIs · MCP · Prompting · RAG</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">7</span> Prompt Engineer <span class="role-badge">Engineering</span></h4>
+                        <p class="role-jd"><strong>Evaluation:</strong> Designs and optimizes the instructions that guide LLM and agent behavior — turning vague requirements into precise, reliable system prompts and evaluation suites.</p>
+                        <p class="role-meta"><strong>Skills:</strong> LLMs · Prompting Techniques · Python · Evaluation · Red Teaming · RAG</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">8</span> NLP Engineer <span class="role-badge">Engineering</span></h4>
+                        <p class="role-jd"><strong>Language Models:</strong> Builds systems that process and generate language — from search and classification to translation and conversational AI.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · Transformers · spaCy · NLTK · Vector Search · Evaluation</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">9</span> Computer Vision Engineer <span class="role-badge">Engineering</span></h4>
+                        <p class="role-jd"><strong>Vision Models:</strong> Builds systems that understand images and video — object detection, segmentation, facial recognition, and generative visual media.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Python · PyTorch · OpenCV · CNNs · Vision Transformers · ONNX · Edge Deployment</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">10</span> MLOps Engineer <span class="role-badge">Operations</span></h4>
+                        <p class="role-jd"><strong>Deployment &amp; Monitoring:</strong> Bridges data science and IT operations — building and maintaining the infrastructure that trains, deploys, and monitors ML models in production, with emphasis on automation and reliability.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Docker · Kubernetes · MLflow · Python · CI/CD · Terraform · AWS/GCP/Azure</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">11</span> AI Security Architect <span class="role-badge">Security</span></h4>
+                        <p class="role-jd"><strong>Security Across the Lifecycle:</strong> Designs and oversees security for AI systems end to end — data pipelines, training infrastructure, deployed models, and agentic workloads — aligned with NIST AI RMF, OWASP LLM Top 10, and MITRE ATLAS.</p>
+                        <p class="role-meta"><strong>Skills:</strong> Threat Modeling · OWASP LLM Top 10 · NIST AI RMF · MITRE ATLAS · Zero Trust · Python · Cloud Security</p>
+                    </div>
+
+                    <div class="role-row">
+                        <h4 class="role-name"><span class="role-num">12</span> AI Governance &amp; Ethics Officer <span class="role-badge">Governance</span></h4>
+                        <p class="role-jd"><strong>Governance &amp; Compliance:</strong> Ensures AI is deployed responsibly, ethically, and in compliance with law and policy — owning governance structures, risk registers, and audit processes.</p>
                         <p class="role-meta"><strong>Skills:</strong> GRC · NIST AI RMF · EU AI Act · ISO 42001 · GDPR · Data Privacy · Audit</p>
                     </div>
                 </div>
@@ -415,8 +392,8 @@
                 <div class="chat-messages" id="chatMessages">
                     <div style="text-align: center; color: #666; padding: 20px;">
                         <i class="fas fa-robot" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <p>AI Assistant is ready to help!</p>
-                        <p style="font-size: 0.9rem; opacity: 0.8;">Connected via Docker container with MCP integration</p>
+                        <p>AI Assistant is temporarily unavailable.</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Assistant is under construction following a server migration</p>
                     </div>
                 </div>
                 <div class="chat-input">
@@ -467,23 +444,6 @@
             loadNavigation();
         });
     </script>
-
-    <!-- Docker Information Section -->
-    <section class="mcp-section">
-        <div class="mcp-container">
-            <div class="docker-info">
-                <h3 class="docker-title">Docker Container Configuration</h3>
-                <div class="docker-description">
-                    <strong>Container:</strong> josh-sylvia-ai-mcp<br>
-                    <strong>Image:</strong> joshsilvatech/ai-assistant:latest<br>
-                    <strong>Port:</strong> 8080<br>
-                    <strong>Environment:</strong> Production<br>
-                    <strong>MCP Protocol:</strong> v1.0<br>
-                    <strong>Status:</strong> <span style="color: #28a745;">● Running</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Table of Contents toggle + scroll spy -->
     <script>
