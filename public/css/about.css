@@ -190,15 +190,15 @@
 
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 15px;
 }
 
 .certification-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 25px;
+    gap: 15px;
+    padding: 18px;
     background: linear-gradient(135deg, #f8f9fa, #ffffff);
     border-radius: 10px;
     border: 1px solid #e0e0e0;
@@ -232,6 +232,12 @@
     padding: 4px;
 }
 
+.cert-content {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
 .cert-content h3 {
     color: var(--accent-color);
     font-size: 18px;
@@ -247,8 +253,8 @@
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
 }
 
 .skill-category h3 {
@@ -358,8 +364,12 @@
     background: #f8f9fa;
 }
 
+.nav-container {
+    max-width: 1400px;
+}
+
 .content-wrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 30px 20px;
 }
