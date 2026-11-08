@@ -1,171 +1,8 @@
-/* CSS Variables for Navigation */
-:root {
-    --primary-color: #ff6b35;
-    --secondary-color: #ff4500;
-    --accent-color: #dc143c;
-}
-
-/* Navigation Styles - Add these to ensure navbar works */
-.top-nav {
-    background: linear-gradient(135deg, #4A90E2, #357ABD);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    height: 70px;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.logo-container img {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-    padding: 5px 0;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    opacity: 0.8;
-    border-bottom: 2px solid white;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background: white;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    z-index: 1001;
-    overflow-y: auto;
-}
-
-.sidebar.open {
-    right: 0;
-}
-
-.sidebar-header {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sidebar-brand {
-    display: flex;
-    align-items: center;
-    color: #333;
-    font-weight: bold;
-}
-
-.sidebar-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-}
-
-.sidebar-content {
-    padding: 20px;
-}
-
-.sidebar-section {
-    margin-bottom: 30px;
-}
-
-.sidebar-title {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.sidebar-nav {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-link {
-    display: block;
-    padding: 10px 0;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.sidebar-link:hover,
-.sidebar-link.active {
-    color: var(--primary-color);
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-}
-
-/* Add padding for fixed navbar */
-body {
-    padding-top: 70px;
-}
-
 /* Homepage Bio Styles */
 .hero-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 80px 0;
+    padding: clamp(44px, 8vw, 80px) 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -189,23 +26,27 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    gap: 40px;
+    gap: clamp(20px, 4vw, 40px);
     align-items: center;
+    min-width: 0;
 }
 
 .hero-left {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     text-align: center;
 }
 
 .hero-right {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .tikal-image {
     width: 100%;
     max-width: 500px;
-    height: 350px;
+    height: auto;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
     object-position: center 30%;
     border-radius: 15px;
@@ -243,11 +84,12 @@ body {
     border-radius: 10px;
     border: 2px solid #3498db;
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
-    text-align: center;
+    text-align: left;
     color: white;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .cert-logo {
@@ -274,11 +116,14 @@ body {
 }
 
 .cert-details {
+    flex: 1 1 180px;
+    min-width: 0;
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 8px;
     margin-top: 10px;
     text-align: left;
+    overflow-wrap: anywhere;
 }
 
 .cert-details p {
@@ -293,20 +138,20 @@ body {
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: clamp(1.9rem, 6vw, 3rem);
     font-weight: bold;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1.05rem, 3.4vw, 1.5rem);
     margin-bottom: 30px;
     opacity: 0.9;
 }
 
 .hero-description {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.4vw, 1.1rem);
     line-height: 1.8;
     margin-bottom: 40px;
     opacity: 0.95;
@@ -366,7 +211,7 @@ body {
 }
 
 .features-section {
-    padding: 80px 0;
+    padding: clamp(48px, 8vw, 80px) 0;
     background: #f8f9fa;
 }
 
@@ -378,7 +223,7 @@ body {
 
 .features-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
     margin-bottom: 50px;
     color: #333;
 }
@@ -421,7 +266,7 @@ body {
 }
 
 .story-section {
-    padding: 80px 0;
+    padding: clamp(48px, 8vw, 80px) 0;
     background: white;
 }
 
@@ -433,7 +278,7 @@ body {
 }
 
 .story-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
     margin-bottom: 30px;
     color: #333;
 }
@@ -448,7 +293,7 @@ body {
 .story-highlight {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    padding: 30px;
+    padding: clamp(18px, 4vw, 30px);
     border-radius: 15px;
     margin: 40px 0;
     font-style: italic;
@@ -503,18 +348,56 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-content {
         flex-direction: column;
-        gap: 30px;
+        gap: 24px;
     }
 
+    .hero-left,
+    .hero-right {
+        display: contents;
+    }
+
+    .hero-title {
+        order: 1;
+    }
+
+    .hero-subtitle {
+        order: 2;
+    }
+
+    .tikal-image {
+        order: 3;
+        max-width: 420px;
+    }
+
+    .certification-badge {
+        order: 4;
+    }
+
+    .hero-description {
+        order: 5;
+    }
+
+    .cta-buttons {
+        order: 6;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
     .hero-title {
         font-size: 2rem;
     }
 
     .hero-subtitle {
         font-size: 1.2rem;
+    }
+
+    .tikal-image {
+        max-width: 300px;
     }
 
     .hero-description {
@@ -524,10 +407,6 @@ body {
     .cta-buttons {
         flex-direction: column;
         align-items: center;
-    }
-
-    .tikal-image {
-        max-width: 300px;
     }
 
     .profile-image {
@@ -542,6 +421,28 @@ body {
     .story-title,
     .features-title {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .certification-badge {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .certification-badge span {
+        font-size: 1.05rem;
+    }
+
+    .cert-logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .cta-button,
+    .cta-button.story-button {
+        width: 100%;
+        padding: 14px 20px;
     }
 }
 

@@ -94,7 +94,6 @@ function handleResize() {
         // Desktop view - always show TOC
         if (tocNav && tocToggle) {
             tocNav.classList.remove('active');
-            tocToggle.style.display = 'none';
         }
     }
 }

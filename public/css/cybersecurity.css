@@ -19,9 +19,9 @@
 .cybersecurity-hero {
     background: linear-gradient(135deg, #270b75 0%, #4A90E2 100%);
     color: white;
-    padding: 60px 20px;
+    padding: clamp(40px, 7vw, 60px) 20px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 .cybersecurity-hero-content {
@@ -30,7 +30,7 @@
 }
 
 .cybersecurity-hero-title {
-    font-size: 3em;
+    font-size: clamp(1.9rem, 5.6vw, 3em);
     font-weight: bold;
     margin: 0 0 20px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -161,6 +161,7 @@
     margin: 0 0 15px 0;
     padding-bottom: 15px;
     border-bottom: 3px solid var(--primary-color);
+    overflow-wrap: break-word;
 }
 
 .section-intro {
@@ -197,12 +198,14 @@
     color: var(--primary-color);
     margin: 0 0 15px 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .subsection-title::before {
     content: "▶";
-    margin-right: 10px;
+    margin-right: 2px;
+    flex-shrink: 0;
     color: var(--accent-color);
 }
 
@@ -373,7 +376,7 @@
 @media (max-width: 480px) {
     .cybersecurity-hero {
         padding: 40px 15px;
-        margin-top: 50px;
+        margin-top: 0;
     }
 
     .cybersecurity-hero-title {
@@ -416,6 +419,15 @@
     .topic-details li {
         margin: 6px 0;
         font-size: 0.95em;
+    }
+
+    .section-intro {
+        padding: 12px;
+        font-size: 0.98em;
+    }
+
+    .reference-links a {
+        overflow-wrap: anywhere;
     }
 }
 

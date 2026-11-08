@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA Automation - Software Testing Techniques</title>
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/qa.css">
@@ -13,6 +14,7 @@
 <body>
     <!-- Search JavaScript - Must load before navigation -->
     <script src="js/search-functions.js"></script>
+    <script src="js/nav.js"></script>
     
     <!-- Navigation Component -->
     <div id="navigation-container"></div>
@@ -464,23 +466,6 @@ def test_nginx_service(host):
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
     <script>
-        // Load navigation
-        fetch('components/navigation.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('navigation-placeholder').innerHTML = html;
-                
-                // Add QA link to navigation
-                const navMenu = document.querySelector('.nav-menu');
-                const sidebarNav = document.querySelector('.sidebar-nav');
-                
-                const qaLink = '<a href="qa.html" class="nav-link">QA</a>';
-                const qaSidebarLink = '<li><a href="qa.html" class="sidebar-link">QA</a></li>';
-                
-                navMenu.insertAdjacentHTML('beforeend', qaLink);
-                sidebarNav.insertAdjacentHTML('beforeend', qaSidebarLink);
-            });
-
         // Smooth scrolling for navigation
         document.addEventListener('DOMContentLoaded', function() {
             const links = document.querySelectorAll('a[href^="#"]');

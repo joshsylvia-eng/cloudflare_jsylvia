@@ -120,9 +120,13 @@
 /* Content Grid */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 30px;
     margin-bottom: 40px;
+}
+
+.content-grid > * {
+    min-width: 0;
 }
 
 .content-card {
@@ -143,6 +147,7 @@
     color: #333;
     margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
 }
@@ -156,7 +161,7 @@
 
 .feature-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
     padding: 12px 0;
     border-bottom: 1px solid #eee;
@@ -172,6 +177,8 @@
     color: #28a745;
     font-size: 1.1rem;
     width: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
 /* HTTP Methods Grid */
@@ -183,6 +190,7 @@
 
 .method-item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 15px;
     padding: 15px;
@@ -214,7 +222,9 @@
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
+    max-width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .code-block pre {
@@ -231,11 +241,14 @@
 /* Comparison Table */
 .comparison-table {
     margin: 20px 0;
+    max-width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .comparison-table table {
     width: 100%;
+    min-width: 560px;
     border-collapse: collapse;
     background: white;
     border-radius: 10px;
@@ -382,7 +395,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .apis-hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
     }
     
     .apis-hero p {
@@ -423,11 +436,11 @@
 
 @media (max-width: 480px) {
     .apis-hero {
-        padding: 80px 0 60px;
+        padding: 56px 16px 44px;
     }
     
     .apis-hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.7rem, 6vw, 2rem);
     }
     
     .section-icon {

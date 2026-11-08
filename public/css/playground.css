@@ -1,9 +1,8 @@
 /* Playground Page Styles */
 .main-content {
-    padding: 1rem;
-    padding-top: 100px;
+    padding: var(--page-pad);
     background: #f8f9fa;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--nav-h));
 }
 
 .content-wrapper {
@@ -111,7 +110,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    height: calc(100vh - 200px);
+    height: calc(100vh - var(--nav-h) - 200px);
+    min-height: 420px;
     margin-bottom: 1rem;
 }
 
@@ -127,8 +127,10 @@
 
 .panel-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
     padding: 1rem;
     background: #f8f9fa;
     border-bottom: 1px solid #e9ecef;
@@ -142,6 +144,7 @@
 
 .editor-info {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     font-size: 0.8rem;
     color: #6c757d;
@@ -259,11 +262,13 @@
 
 .share-input-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 
 .share-input-group input {
-    flex: 1;
+    flex: 1 1 180px;
+    min-width: 0;
     padding: 0.5rem;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -306,24 +311,53 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .editor-container {
         grid-template-columns: 1fr;
         height: auto;
+        min-height: 0;
     }
-    
+
+    .editor-panel,
+    .output-panel {
+        min-height: 320px;
+    }
+
+    .code-editor {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
     .ide-controls {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .control-buttons {
         margin-left: 0;
         justify-content: center;
+        flex-wrap: wrap;
     }
-    
+
     .editor-panel,
     .output-panel {
         min-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .editor-panel,
+    .output-panel {
+        min-height: 260px;
+    }
+
+    .code-editor {
+        min-height: 260px;
+    }
+
+    .output-container,
+    .console-container {
+        font-size: 0.82rem;
     }
 }

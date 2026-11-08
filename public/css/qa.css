@@ -1,5 +1,57 @@
 /* QA Page Specific Styles */
 
+/* Hero Section */
+.qa-hero {
+    background: linear-gradient(135deg, #270b75 0%, #4A90E2 100%);
+    color: white;
+    padding: clamp(56px, 9vw, 100px) 20px clamp(44px, 7vw, 80px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.qa-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.qa-hero h1 {
+    font-size: clamp(1.9rem, 6vw, 3.5rem);
+    font-weight: bold;
+    margin: 0 0 16px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.qa-hero p {
+    font-size: clamp(1rem, 2.6vw, 1.3rem);
+    margin: 0 auto 32px;
+    max-width: 720px;
+    opacity: 0.9;
+}
+
+.qa-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.stat-item i {
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+
 /* Main Content */
 .qa-main {
     padding: 0;
@@ -49,9 +101,13 @@
 /* Content Grid */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 30px;
     margin-bottom: 40px;
+}
+
+.content-grid > * {
+    min-width: 0;
 }
 
 .content-card {
@@ -72,6 +128,7 @@
     color: #333;
     margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
 }
@@ -82,7 +139,9 @@
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
+    max-width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .code-block pre {
@@ -105,7 +164,7 @@
 
 .feature-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
     padding: 12px 0;
     border-bottom: 1px solid #eee;
@@ -121,6 +180,8 @@
     color: #28a745;
     font-size: 1.1rem;
     width: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
 /* Practice Items */
@@ -147,11 +208,14 @@
 /* Comparison Table */
 .comparison-table {
     margin: 20px 0;
+    max-width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .comparison-table table {
     width: 100%;
+    min-width: 560px;
     border-collapse: collapse;
     background: white;
     border-radius: 10px;
@@ -248,11 +312,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .qa-hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
     }
     
     .qa-hero p {
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 2.6vw, 1.1rem);
     }
     
     .qa-hero-stats {
@@ -289,11 +353,11 @@
 
 @media (max-width: 480px) {
     .qa-hero {
-        padding: 80px 0 60px;
+        padding: 56px 16px 44px;
     }
     
     .qa-hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.7rem, 6vw, 2rem);
     }
     
     .section-icon {

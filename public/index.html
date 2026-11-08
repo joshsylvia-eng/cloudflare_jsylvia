@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Josh Sylvia Tech - About Me</title>
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Search JavaScript - Must load before navigation -->
     <script src="js/search-functions.js"></script>
+    <script src="js/nav.js"></script>
 
     <!-- Navigation Component -->
     <div id="navigation-container"></div>
@@ -183,28 +186,6 @@
             }
         }
         
-        // Add toggleSidebar function for mobile menu
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            if (sidebar) {
-                sidebar.classList.toggle('open');
-            }
-        }
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const navToggle = document.querySelector('.nav-toggle');
-            
-            if (window.innerWidth <= 768 && 
-                sidebar && 
-                !sidebar.contains(event.target) && 
-                !navToggle.contains(event.target) && 
-                sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-            }
-        });
-
         // Load navigation when page loads
         document.addEventListener('DOMContentLoaded', loadNavigation);
     </script>

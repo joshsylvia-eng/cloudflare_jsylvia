@@ -5,16 +5,11 @@
     --accent-color: #2E7CD6;
 }
 
-/* Add padding for fixed navbar */
-body {
-    padding-top: 70px;
-}
-
 /* AI Page Hero */
 .ai-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 100px 0;
+    padding: clamp(56px, 10vw, 100px) 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -40,14 +35,14 @@ body {
 }
 
 .ai-hero-title {
-    font-size: 3rem;
+    font-size: clamp(1.9rem, 6vw, 3rem);
     font-weight: bold;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .ai-hero-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3.2vw, 1.5rem);
     margin-bottom: 40px;
     opacity: 0.9;
 }
@@ -56,7 +51,7 @@ body {
 .chatbot-section {
     background: linear-gradient(135deg, #28a745 0%, #20bf6b 100%);
     color: white;
-    padding: 80px 0;
+    padding: clamp(48px, 8vw, 80px) 0;
     text-align: center;
 }
 
@@ -93,14 +88,16 @@ body {
     bottom: calc(100% + 12px);
     left: 50%;
     transform: translateX(-50%);
+    width: min(320px, 80vw);
+    max-width: 80vw;
     background: #333;
     color: #fff;
     padding: 10px 14px;
     border-radius: 6px;
     font-size: 0.85rem;
     font-weight: normal;
-    white-space: nowrap;
-    max-width: 90vw;
+    white-space: normal;
+    text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -130,7 +127,7 @@ body {
 }
 
 .chatbot-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
     margin-bottom: 20px;
     font-weight: bold;
 }
@@ -145,7 +142,7 @@ body {
 .chatbot-interface {
     background: white;
     border-radius: 15px;
-    padding: 30px;
+    padding: clamp(14px, 4vw, 30px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     margin-bottom: 40px;
 }
@@ -210,7 +207,7 @@ body {
 .highlight-box {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 30px;
+    padding: clamp(18px, 4vw, 30px);
     border-radius: 15px;
     margin: 30px 0;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
@@ -234,7 +231,6 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 34px 20px 40px;
-    align-items: flex-start;
 }
 
 .toc-sidebar {
@@ -465,7 +461,7 @@ body {
 /* ===== Lifecycle circle ===== */
 .lifecycle-circle {
     --r: 180px;
-    --nw: 92px;
+    --nw: 84px;
     position: relative;
     width: calc(var(--r)*2 + var(--nw) + 40px);
     height: calc(var(--r)*2 + var(--nw) + 40px);
@@ -487,7 +483,7 @@ body {
     gap: 2px;
     background: #fff;
     border: 2px solid var(--primary-color);
-    border-radius: 12px;
+    border-radius: 50%;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
     text-align: center;
 }
@@ -722,8 +718,8 @@ body {
     }
 
     .lifecycle-circle {
-        --r: 118px;
-        --nw: 74px;
+        --r: 150px;
+        --nw: 68px;
     }
 
     .lc-center {
@@ -735,5 +731,82 @@ body {
     .lc-num,
     .lc-label {
         font-size: 0.62rem;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Wheel is unreadable this small: lay the 12 stages out as a grid */
+    .lifecycle-circle {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        height: auto;
+        margin: 16px 0 20px;
+    }
+
+    .lc-center {
+        position: static;
+        grid-column: 1 / -1;
+        transform: none;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 0.95em;
+    }
+
+    .lc-node {
+        position: static;
+        width: auto;
+        height: auto;
+        min-height: 56px;
+        margin: 0;
+        padding: 8px 4px;
+        border-radius: 10px;
+        transform: none !important;
+    }
+
+    .lc-num,
+    .lc-label {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ai-layout {
+        padding: 14px 8px 20px;
+    }
+
+    .content-section {
+        padding: 14px;
+    }
+
+    .section-title {
+        font-size: 1.2em;
+    }
+
+    .subsection-title {
+        font-size: 1.05em;
+    }
+
+    .lc-legend li,
+    .owasp-list li,
+    .plain-list li {
+        font-size: 0.95em;
+    }
+
+    .chat-messages {
+        height: 260px;
+        padding: 14px;
+    }
+
+    .construction-notice {
+        padding: 10px 16px;
+        font-size: 1rem;
+    }
+
+    .role-badge {
+        white-space: normal;
     }
 }

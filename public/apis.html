@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APIs - REST, GraphQL, Microservices & Testing</title>
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/apis.css">
@@ -13,6 +14,7 @@
 <body>
     <!-- Search JavaScript - Must load before navigation -->
     <script src="js/search-functions.js"></script>
+    <script src="js/nav.js"></script>
     
     <!-- Navigation Component -->
     <div id="navigation-container"></div>
@@ -628,23 +630,6 @@ message GetUserRequest {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-graphql.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-protobuf.min.js"></script>
     <script>
-        // Load navigation
-        fetch('components/navigation.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('navigation-placeholder').innerHTML = html;
-                
-                // Add APIs link to navigation
-                const navMenu = document.querySelector('.nav-menu');
-                const sidebarNav = document.querySelector('.sidebar-nav');
-                
-                const apisLink = '<a href="apis.html" class="nav-link">APIs</a>';
-                const apisSidebarLink = '<li><a href="apis.html" class="sidebar-link">APIs</a></li>';
-                
-                navMenu.insertAdjacentHTML('beforeend', apisLink);
-                sidebarNav.insertAdjacentHTML('beforeend', apisSidebarLink);
-            });
-
         // Smooth scrolling for navigation
         document.addEventListener('DOMContentLoaded', function() {
             const links = document.querySelectorAll('a[href^="#"]');

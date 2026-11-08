@@ -38,28 +38,6 @@ function setActiveNavigation() {
     }
 }
 
-// Add toggleSidebar function for mobile menu
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    if (sidebar) {
-        sidebar.classList.toggle('open');
-    }
-}
-
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', function(event) {
-    const sidebar = document.getElementById('sidebar');
-    const navToggle = document.querySelector('.nav-toggle');
-    
-    if (window.innerWidth <= 768 && 
-        sidebar && 
-        !sidebar.contains(event.target) && 
-        !navToggle.contains(event.target) && 
-        sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-    }
-});
-
 // Load navigation when page loads
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DEBUG: DOM Content Loaded');
